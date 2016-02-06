@@ -36,7 +36,7 @@
                                      </li>
                                      <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Add question</a>
                                       </li>
-                                      <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">View Problem</a>
+                                      <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">View Topic</a>
                                       </li>
                                      </ul>
                                     <div id="myTabContent" class="tab-content">
@@ -49,7 +49,7 @@
                                         <span class="section">Adding Topic</span>
 
                                         <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Enter Topic name <span class="required">*</span>
+                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="topicName">Enter Topic name <span class="required">*</span>
                                             </label>
                                             <div class="col-md-6 col-sm-6 col-xs-12">
                                                 <input id="topicName" class="form-control col-md-7 col-xs-12"  name="topicName" placeholder="e.g PHP,JAVA, etc" required="required" type="text">
@@ -69,125 +69,170 @@
 
 
                                         </div>
-                                         <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+                                    <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
                                         <div class="x_content">
 
-                                    <form class="form-horizontal form-label-left" action="addSyllabus.php" method="POST" novalidate>
+                                    		<form class="form-horizontal form-label-left" action="addSyllabus.php" method="POST" novalidate>
 
-                                        </p>
-                                        <span class="section">Problems Details</span>
+                                        		</p>
+                                        		<span class="section">Problems Details</span>
 
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Select Topic Name <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <select id="topicId" name="topicId" class="form-control" required>
-                                                	<?php
-														$result=select_Domain();
-														while($row=mysqli_fetch_assoc($result))
-														{
-															//var_dump($row);
-															echo  "<option>".$row["Domain_Name"]."</option>";
-														}
-													?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Enter sub Topic <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <textarea id="subTopic" name="subTopic" required="required" class="form-control col-md-7 col-xs-12" placeholder="e.g Array, Loops, etc. from java"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">time to Complete <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                               <input id="timeToComplete" class="form-control col-md-7 col-xs-12"  name="timeToComplete" placeholder="e.g 1 hours" required="required" type="text">
-         									</div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">Number of problems <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                <input type="number" id="numberOfQuestion" name="numberOfQuestion" required="required" data-validate-minmax="1,100" class="form-control col-md-7 col-xs-12">
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Reference Website<span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                               <textarea id="refUrl" name="refUrl" class="form-control col-md-7 col-xs-12" placeholder="e.g www.w3school.com"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="item form-group">
-                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="occupation">Reference Book <span class="required">*</span>
-                                            </label>
-                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                               <textarea id="refBook" name="refBook" class="form-control col-md-7 col-xs-12" placeholder="e.g name of Book"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="ln_solid"></div>
-                                        <div class="form-group">
-                                            <div class="col-md-6 col-md-offset-3">
-                                                <button id="submit" name="submit" type="submit" class="btn btn-success">Submit</button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                        		<div class="item form-group">
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="topicId">Select Topic Name <span class="required">*</span>
+                                            		</label>
+                                            		<div class="col-md-6 col-sm-6 col-xs-12">
+                                                		<select id="topicId" name="topicId" class="form-control" required>
+                                                			<?php
+																$result=select_Domain();
+																while($row=mysqli_fetch_assoc($result))
+																{
+																	//var_dump($row);
+																	echo  "<option>".$row["Domain_Name"]."</option>";
+																}
+															?>
+                                                		</select>
+                                            		</div>
+                                        		</div>
+                                        		<div class="item form-group">
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="subTopic">Enter sub Topic <span class="required">*</span>
+                                            		</label>
+                                            		<div class="col-md-6 col-sm-6 col-xs-12">
+                                                		<textarea id="subTopic" name="subTopic" required="required" class="form-control col-md-7 col-xs-12" placeholder="e.g Array, Loops, etc. from java"></textarea>
+                                            		</div>
+                                        		</div>
+                                        		<div class="item form-group">
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="timeToComplete">time to Complete <span class="required">*</span>
+                                            		</label>
+                                            		<div class="col-md-6 col-sm-6 col-xs-12">
+                                               			<input id="timeToComplete" class="form-control col-md-7 col-xs-12"  name="timeToComplete" placeholder="e.g 1 hours" required="required" type="text">
+         												</div>
+                                        			</div>
+                                        			<div class="item form-group">
+                                            			<label class="control-label col-md-3 col-sm-3 col-xs-12" for="numberOfQuestion">Number of problems <span class="required">*</span>
+                                            			</label>
+                                            		<div class="col-md-6 col-sm-6 col-xs-12">
+                                                		<input type="number" id="numberOfQuestion" name="numberOfQuestion" required="required" data-validate-minmax="1,100" class="form-control col-md-7 col-xs-12">
+                                           			 </div>
+                                        		</div>
+                                        		<div class="item form-group">
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="refUrl">Reference Website<span class="required">*</span>
+                                            		</label>
+                                            		<div class="col-md-6 col-sm-6 col-xs-12">
+                                               			<textarea id="refUrl" name="refUrl" class="form-control col-md-7 col-xs-12" placeholder="e.g www.w3school.com"></textarea>
+                                            		</div>
+                                        		</div>
+                                        		<div class="item form-group">
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="refBook">Reference Book <span class="required">*</span>
+                                            		</label>
+                                            		<div class="col-md-6 col-sm-6 col-xs-12">
+                                              			 <textarea id="refBook" name="refBook" class="form-control col-md-7 col-xs-12" placeholder="e.g name of Book"></textarea>
+                                            		</div>
+                                        		</div>
+                                        		<div class="ln_solid"></div>
+                                        		<div class="form-group">
+                                           			<div class="col-md-6 col-md-offset-3">
+                                                		<button id="submit" name="submit" type="submit" class="btn btn-success">Submit</button>
+                                           			 </div>
+                                        		</div>
+                                    		</form>
 
-                                </div>
-                                        </div>
-                                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
-                                               
+                                		</div>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+                                        <div class="x_content">
+
+                                    		<form class="form-horizontal form-label-left" action="addSyllabus.php" method="POST" novalidate>
+
+                                        		</p>
+                                        		<span class="section">Add question</span>
+
+                                        		<div class="item form-group">
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Select Topic Name <span class="required">*</span>
+                                            		</label>
+                                            		<div class="col-md-6 col-sm-6 col-xs-12">
+                                                		<select id="topicId" name="topicId" class="form-control" required>
+                                                			<?php
+																$result=select_Domain();
+																while($row=mysqli_fetch_assoc($result))
+																{
+																	//var_dump($row);
+																	echo  "<option>".$row["Domain_Name"]."</option>";
+																}
+															?>
+                                                		</select>
+                                            		</div>
+                                        		</div>
+                                        		<div class="item form-group">
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="subTopic">Syllabus <span class="required">*</span>
+                                            		</label>
+                                            		<div class="col-md-6 col-sm-6 col-xs-12">
+                                                		<textarea id="subTopic" name="subTopic" required="required" class="form-control col-md-7 col-xs-12" placeholder="e.g Array, Loops, etc. from java"></textarea>
+                                            		</div>
+                                        		</div>
+                                        		<div class="item form-group">
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Question here<span class="required">*</span>
+                                            		</label>
+                                            		<div class="col-md-6 col-sm-6 col-xs-12">
+                                               			<textarea id="refUrl" name="refUrl" class="form-control col-md-7 col-xs-12" placeholder="e.g www.w3school.com"></textarea>
+                                            		</div>
+                                        		</div>
+                                        		<div class="ln_solid"></div>
+                                        		<div class="form-group">
+                                           			<div class="col-md-6 col-md-offset-3">
+                                                		<button id="submit" name="submit" type="submit" class="btn btn-success">Submit</button>
+                                           			 </div>
+                                        		</div>
+                                    		</form>
+
+                                		</div>          
                                         	
 
-                                    	</div>
-                                    	<div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+                                   	</div>
+                                   	<div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
                                                
-                                               <div class="row">
+                                        <div class="row">
 
-                        							<div class="col-md-12 col-sm-12 col-xs-12">
-                            								<div class="x_panel">
-                                									<div class="x_content">
-                                    									<table id="example" class="table table-striped responsive-utilities jambo_table">
-                                       									 <thead>
-                                            								<tr class="headings">
-                                                								<th>
-                                                    							<input type="checkbox" class="tableflat">
-                                                								</th>
-                                                								<th>Topic Name</th>
-                                                								<th class=" no-link last"><span class="nobr">Action</span>
-                                               								 	</th>
-                                            								</tr>
-                                        									</thead>
-                                        									<?php
-																				$result=select_Domain();
-																				while($row=mysqli_fetch_assoc($result))
-																				{
-																					echo "<tbody>";
-																					echo "<tr><td class=\"a-center \">";
-																					echo "<input type=\"checkbox\" class=\"tableflat\">";
-																					echo "</td>";
-																					echo "<td>".$row["Domain_Name"]."</td>";
-																					echo "<td class=\" last\"><a href=\"#\">View</a>";
-																					echo "</td>";
-																					echo "</tr>";
-																					echo "</tbody>";
-																					//echo  "<option>".$row["Domain_Name"]."</option>";
-																				}
-																			?>
+                        					<div class="col-md-12 col-sm-12 col-xs-12">
+                            					<div class="x_panel">
+                                					<div class="x_content">
+                                    					<table id="example" class="table table-striped responsive-utilities jambo_table">
+                                       						<thead>
+                                            					<tr class="headings">
+                                                					<th>
+                                                    					<input type="checkbox" class="tableflat">
+                                                					</th>
+                                                					<th>Topic Name</th>
+                                                					<th class=" no-link last"><span class="nobr">Action</span>
+                                               						</th>
+                                            					</tr>
+                                        					</thead>
+                                        					<?php
+																$result=select_Domain();
+																while($row=mysqli_fetch_assoc($result))
+																{
+																	echo "<tbody>";
+																	echo "<tr><td class=\"a-center \">";
+																	echo "<input type=\"checkbox\" class=\"tableflat\">";
+																	echo "</td>";
+																	echo "<td>".$row["Domain_Name"]."</td>";
+																	echo "<td class=\" last\"><a href=\"#\">View</a>";
+																	echo "</td>";
+																	echo "</tr>";
+																	echo "</tbody>";
+																	//echo  "<option>".$row["Domain_Name"]."</option>";
+																}
+															?>
 
-                                    										</table>
-                                									</div>
-                            								</div>
-                        							</div>
+                                    					</table>
+                                					</div>
+                            					</div>
+                        					</div>
 
-                       										<br />
-                        									<br />
-                        									<br />
-                                         		</div>
-                               </div>
+                       						<br />
+                        					<br />
+                        					<br />
+                                        </div>
+                               		</div>
 
                           </div>
                 </div>
