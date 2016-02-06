@@ -30,11 +30,11 @@
 
                                  <div class="" role="tabpanel" data-example-id="togglable-tabs">
                                     <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                                     <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Ading Topic</a>
+                                     <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Add Topic</a>
                                      </li>
-                                     <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Adding Problem</a>
+                                     <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Add Problem</a>
                                      </li>
-                                     <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">View Topic</a>
+                                     <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Add question</a>
                                       </li>
                                       <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">View Problem</a>
                                       </li>
@@ -141,6 +141,10 @@
                                         <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
                                                
                                         	
+
+                                    	</div>
+                                    	<div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
+                                               
                                                <div class="row">
 
                         							<div class="col-md-12 col-sm-12 col-xs-12">
@@ -183,49 +187,6 @@
                         									<br />
                         									<br />
                                          		</div>
-                                    	</div>
-                                    	<div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
-                                               
-                                        	<div class="page-title">
-                        						
-                                               <div class="row">
-
-                        							<div class="col-md-12 col-sm-12 col-xs-12">
-                            								<div class="x_panel">
-                                									<div class="x_content">
-                                    									<table id="example" class="table table-striped responsive-utilities jambo_table">
-                                       									 <thead>
-                                            								<tr class="headings">
-                                                								<th>
-                                                    							<input type="checkbox" class="tableflat">
-                                                								</th>
-                                                								<th>Invoice </th>
-                                                								<th class=" no-link last"><span class="nobr">Action</span>
-                                               								 	</th>
-                                            								</tr>
-                                        									</thead>
-
-                                        									<tbody>
-                                           									 <tr class="even pointer">
-                                                									<td class="a-center ">
-                                                    								<input type="checkbox" class="tableflat">
-                                                									</td>
-                                                									<td class=" ">121000040</td>
-                                                									<td class=" last"><a href="#">View</a>
-                                                									</td>
-                                            									</tr>
-                                        									</tbody>
-
-                                    										</table>
-                                									</div>
-                            								</div>
-                        							</div>
-
-                       										<br />
-                        									<br />
-                        									<br />
-                                         		</div>
-                                    	</div>
                                </div>
 
                           </div>
