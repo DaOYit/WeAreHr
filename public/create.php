@@ -7,9 +7,11 @@ if(isset($_POST['submit']))
     $topic_name = $_POST['topicName'];
 
     $query="insert into";
-    $query .=" domain(domain_Name)";
-    $query .=" values('{$topic_name}')";
-    $result=mysqli_query($connection,$query);
+    $query .=" topic(Topic_Name)";
+    $query .=" values(?)";
+    $stmt = $connection->prepare($query);
+    $stmt->bind_param("s", $topic_name);
+    $result = $stmt->execute();
     if($result)
     {
         echo "Success";

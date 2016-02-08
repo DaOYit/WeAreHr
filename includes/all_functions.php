@@ -8,26 +8,30 @@ function confirm_query($result)
 {
 	if(!$result)
     {
- 		die("Database connection fail".mysqli_error($connection));
+    	global $connection;
+ 		die("Fail to execute".mysqli_error($connection));
     }
 }
 function select_Domain()
 {
 	global $connection;
-	$query="select Domain_Name";
-	$query .=" from domain";
-	$query .=" ORDER BY Domain_Name ASC";
-	$result=mysqli_query($connection,$query);
+	$stmt = $connection->prepare("call getTopic()");
+	$stmt->execute();
+	$result = $stmt->get_result();
 	confirm_query($result);
 	return $result;
+
+
 }
 function select_Domain_id($domainName)
 {
 	global $connection;
-	$query="select Domain_ID";
-	$query .=" from domain";
-	$query .=" where Domain_Name='{$domainName}' LIMIT 1";
-	$result=mysqli_query($connection,$query);
+	$query="select Topic_id";
+	$query .=" from Topic";
+	$query .=" where Topic_Name='{$domainName}' LIMIT 1";
+	$stmt = $connection->prepare($query);
+	$stmt->execute();
+	$result = $stmt->get_result();
 	confirm_query($result);
 	return $result;
 }

@@ -34,9 +34,9 @@
                                      </li>
                                      <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab"  aria-expanded="false">Add Problem</a>
                                      </li>
-                                     <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Add question</a>
+                                     <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Exam generation</a>
                                       </li>
-                                      <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">View Topic</a>
+                                      <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Exam Details</a>
                                       </li>
                                      </ul>
                                     <div id="myTabContent" class="tab-content">
@@ -78,54 +78,59 @@
                                         		<span class="section">Problems Details</span>
 
                                         		<div class="item form-group">
-                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="topicId">Select Topic Name <span class="required">*</span>
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="topicId">Select Course Name <span class="required">*</span>
                                             		</label>
                                             		<div class="col-md-6 col-sm-6 col-xs-12">
                                                 		<select id="topicId" name="topicId" class="form-control" required>
                                                 			<?php
 																$result=select_Domain();
-																while($row=mysqli_fetch_assoc($result))
+																while($row =$result->fetch_assoc())
 																{
 																	//var_dump($row);
-																	echo  "<option>".$row["Domain_Name"]."</option>";
+																	echo  "<option>".$row["topic_Name"]."</option>";
 																}
+																
 															?>
                                                 		</select>
                                             		</div>
                                         		</div>
                                         		<div class="item form-group">
-                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="subTopic">Enter sub Topic <span class="required">*</span>
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="broadTopic">Broad Topic <span class="required">*</span>
                                             		</label>
                                             		<div class="col-md-6 col-sm-6 col-xs-12">
-                                                		<textarea id="subTopic" name="subTopic" required="required" class="form-control col-md-7 col-xs-12" placeholder="e.g Array, Loops, etc. from java"></textarea>
+                                                		<textarea id="broadTopic" name="broadTopic" required="required" class="form-control col-md-7 col-xs-12" placeholder="e.g Array, Loops, etc. from java"></textarea>
                                             		</div>
                                         		</div>
                                         		<div class="item form-group">
-                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="timeToComplete">time to Complete <span class="required">*</span>
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="questionName">Name of Question<span class="required">*</span>
                                             		</label>
                                             		<div class="col-md-6 col-sm-6 col-xs-12">
-                                               			<input id="timeToComplete" class="form-control col-md-7 col-xs-12"  name="timeToComplete" placeholder="e.g 1 hours" required="required" type="text">
+                                               			<textarea id="questionName" name="questionName" required="required" class="form-control col-md-7 col-xs-12" placeholder="e.g question over here"></textarea>
          												</div>
                                         			</div>
                                         			<div class="item form-group">
-                                            			<label class="control-label col-md-3 col-sm-3 col-xs-12" for="numberOfQuestion">Number of problems <span class="required">*</span>
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="questionType">type of Question<span class="required">*</span>
+                                            		</label>
+                                            		<div class="col-md-6 col-sm-6 col-xs-12">
+                                                		<select id="questionType" name="questionType" class="form-control" required>
+                                                			<option>Single Choice</option>
+                                                			<option>Multiple Choice</option>
+                                                			<option>Description</option>
+                                                		</select>
+                                            		</div>
+                                            		</div>
+                                        			<div class="item form-group">
+                                            			<label class="control-label col-md-3 col-sm-3 col-xs-12" for="numberOfOption">How many option<span class="required">*</span>
                                             			</label>
                                             		<div class="col-md-6 col-sm-6 col-xs-12">
-                                                		<input type="number" id="numberOfQuestion" name="numberOfQuestion" required="required" data-validate-minmax="1,100" class="form-control col-md-7 col-xs-12">
+                                                		<input type="number" id="numberOfOption" name="numberOfOption" required="required" data-validate-minmax="1,100" class="form-control col-md-7 col-xs-12">
                                            			 </div>
                                         		</div>
                                         		<div class="item form-group">
-                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="refUrl">Reference Website<span class="required">*</span>
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="questionDesc">Question Description<span class="required">*</span>
                                             		</label>
                                             		<div class="col-md-6 col-sm-6 col-xs-12">
-                                               			<textarea id="refUrl" name="refUrl" class="form-control col-md-7 col-xs-12" placeholder="e.g www.w3school.com"></textarea>
-                                            		</div>
-                                        		</div>
-                                        		<div class="item form-group">
-                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="refBook">Reference Book <span class="required">*</span>
-                                            		</label>
-                                            		<div class="col-md-6 col-sm-6 col-xs-12">
-                                              			 <textarea id="refBook" name="refBook" class="form-control col-md-7 col-xs-12" placeholder="e.g name of Book"></textarea>
+                                               			<textarea id="questionDesc" name="questionDesc" class="form-control col-md-7 col-xs-12" placeholder="e.g www.w3school.com"></textarea>
                                             		</div>
                                         		</div>
                                         		<div class="ln_solid"></div>
@@ -153,29 +158,23 @@
                                                 		<select id="topicId" name="topicId" class="form-control" required>
                                                 			<?php
 																$result=select_Domain();
-																while($row=mysqli_fetch_assoc($result))
+																while($row =$result->fetch_assoc())
 																{
 																	//var_dump($row);
-																	echo  "<option>".$row["Domain_Name"]."</option>";
+																	echo  "<option>".$row["topic_Name"]."</option>";
 																}
 															?>
                                                 		</select>
                                             		</div>
                                         		</div>
                                         		<div class="item form-group">
-                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="subTopic">Syllabus <span class="required">*</span>
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="numberOfQuestion">Total Number of Question<span class="required">*</span>
                                             		</label>
                                             		<div class="col-md-6 col-sm-6 col-xs-12">
-                                                		<textarea id="subTopic" name="subTopic" required="required" class="form-control col-md-7 col-xs-12" placeholder="e.g Array, Loops, etc. from java"></textarea>
-                                            		</div>
-                                        		</div>
-                                        		<div class="item form-group">
-                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Question here<span class="required">*</span>
-                                            		</label>
-                                            		<div class="col-md-6 col-sm-6 col-xs-12">
-                                               			<textarea id="refUrl" name="refUrl" class="form-control col-md-7 col-xs-12" placeholder="e.g www.w3school.com"></textarea>
-                                            		</div>
-                                        		</div>
+                                                		<input type="number" id="numberOfQuestion" name="numberOfQuestion" required="required" data-validate-minmax="1,100" class="form-control col-md-7 col-xs-12">
+                                           			 </div>
+                                        		</div>                                        		
+                                        		
                                         		<div class="ln_solid"></div>
                                         		<div class="form-group">
                                            			<div class="col-md-6 col-md-offset-3">
@@ -189,49 +188,76 @@
 
                                    	</div>
                                    	<div role="tabpanel" class="tab-pane fade" id="tab_content4" aria-labelledby="profile-tab">
-                                               
-                                        <div class="row">
+                                   		<div class="x_content">
 
-                        					<div class="col-md-12 col-sm-12 col-xs-12">
-                            					<div class="x_panel">
-                                					<div class="x_content">
-                                    					<table id="example" class="table table-striped responsive-utilities jambo_table">
-                                       						<thead>
-                                            					<tr class="headings">
-                                                					<th>
-                                                    					<input type="checkbox" class="tableflat">
-                                                					</th>
-                                                					<th>Topic Name</th>
-                                                					<th class=" no-link last"><span class="nobr">Action</span>
-                                               						</th>
-                                            					</tr>
-                                        					</thead>
-                                        					<?php
+                                    		<form class="form-horizontal form-label-left" action="addSyllabus.php" method="POST" novalidate>
+
+                                        		<div class="item form-group">
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="topicId">Select Course Name <span class="required">*</span>
+                                            		</label>
+                                            		<div class="col-md-6 col-sm-6 col-xs-12">
+                                                		<select id="topicId" name="topicId" class="form-control" required>
+                                                			<?php
 																$result=select_Domain();
-																while($row=mysqli_fetch_assoc($result))
+																while($row =$result->fetch_assoc())
 																{
-																	echo "<tbody>";
-																	echo "<tr><td class=\"a-center \">";
-																	echo "<input type=\"checkbox\" class=\"tableflat\">";
-																	echo "</td>";
-																	echo "<td>".$row["Domain_Name"]."</td>";
-																	echo "<td class=\" last\"><a href=\"#\">View</a>";
-																	echo "</td>";
-																	echo "</tr>";
-																	echo "</tbody>";
-																	//echo  "<option>".$row["Domain_Name"]."</option>";
+																	//var_dump($row);
+																	echo  "<option>".$row["topic_Name"]."</option>";
 																}
 															?>
+                                                		</select>
+                                            		</div>
+                                        		</div>
+                                        		<div class="item form-group">
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="numberOfQuestion">Exam Date<span class="required">*</span>
+                                            		</label>
+                                                	<div class="control-group">
+                                                    	<div class="controls">
+                                                        	<div class="col-md-6 col-sm-6 col-xs-12 has-feedback">
+                                                            	 <input type="text" class="form-control has-feedback-right col-md-7 col-xs-12" id="single_cal1" placeholder="select Date" aria-describedby="inputSuccess2Status">
+                                                           		 <span class="fa fa-calendar-o form-control-feedback right" aria-hidden="false"></span>
+                                                           		 
+                                                        	</div>
+                                                    	</div>
+                                                	</div>
+                                        		</div> 
+                                        		<div class="item form-group">
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="numberOfQuestion">Start Time<span class="required">*</span>
+                                            		</label>
+                                                	<div class="control-group">
+                                                    	<div class="controls">
+                                                        	<div class="col-md-6 col-sm-6 col-xs-12 has-feedback">
+                                                            	 <input type="text" class="form-control has-feedback-right col-md-7 col-xs-12" id="single_cal" placeholder="E.g 00:00:00" aria-describedby="inputSuccess2Status">
+                                                           		 <span class="glyphicon glyphicon-time form-control-feedback right" aria-hidden="false"></span>
+                                                           		 
+                                                        	</div>
+                                                    	</div>
+                                                	</div>
+                                        		</div> 
+                                        		<div class="item form-group">
+                                            		<label class="control-label col-md-3 col-sm-3 col-xs-12" for="numberOfQuestion">End Time<span class="required">*</span>
+                                            		</label>
+                                                	<div class="control-group">
+                                                    	<div class="controls">
+                                                        	<div class="col-md-6 col-sm-6 col-xs-12 has-feedback">
+                                                            	 <input type="text" class="form-control has-feedback-right col-md-7 col-xs-12" id="single_cal" placeholder="E.g 00:00:00" aria-describedby="inputSuccess2Status">
+                                                           		 <span class="glyphicon glyphicon-time form-control-feedback right" aria-hidden="false"></span>
+                                                           		 
+                                                        	</div>
+                                                    	</div>
+                                                	</div>
+                                        		</div> 
+                                        		
+                                        		</div>
+                                        		<div class="ln_solid"></div>
+                                        		<div class="form-group">
+                                           			<div class="col-md-6 col-md-offset-3">
+                                                		<button id="submit" name="submit" type="submit" class="btn btn-success">Submit</button>
+                                           			 </div>
+                                        		</div>
+                                    		</form>
 
-                                    					</table>
-                                					</div>
-                            					</div>
-                        					</div>
-
-                       						<br />
-                        					<br />
-                        					<br />
-                                        </div>
+                                		</div>
                                		</div>
 
                           </div>

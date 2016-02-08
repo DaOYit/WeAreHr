@@ -78,6 +78,26 @@
                 $('form .alert').remove();
         }).prop('checked', false);
     </script>
+    <!-- daterangepicker -->
+    <script type="text/javascript" src="js/moment.min2.js"></script>
+    <script type="text/javascript" src="js/datepicker/daterangepicker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#single_cal1').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_1"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+            $('#single_cal2').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_1"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+            
+        });
+    </script>
 
 </body>
 

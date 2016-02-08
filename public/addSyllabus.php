@@ -4,23 +4,26 @@
 	if(isset($_POST['submit']))
 	{
     	$domain_id = $_POST['topicId'];
-    	$input_topic = $_POST['subTopic'];
-    	$input_time_toComplete=$_POST['timeToComplete'];
-        $inputTotal_ques = $_POST['numberOfQuestion'];
-    	$input_ref = $_POST['refUrl'];
-    	$input_sugestion = $_POST['refBook'];
+    	$input_topic = $_POST['broadTopic'];
+    	$question_name=$_POST['questionName'];
+        $questiont_type = $_POST['questionType'];
+    	$number_ofoption = $_POST['numberOfOption'];
+    	$question_desc = $_POST['questionDesc'];
     	$domainID= select_Domain_id($domain_id);
 
     	if(isset($domainID))
     	{
-    		 while($row=mysqli_fetch_assoc($domainID))
+    		 while($row =$domainID->fetch_assoc())
 			{
-				$temp=$row["Domain_ID"];
+				$temp=$row["Topic_id"];
 			}
-    		$query="insert into syllabus(";
-    		$query .="Subtopic_Name,Number_of_Question,time_to_complete,References_url,References_book,Topic_Id";
-    		$query .=") values('{$input_topic}','{$inputTotal_ques}','{$input_time_toComplete}','{$input_ref}','{$input_sugestion}','{$temp}')";
-    		$result=mysqli_query($connection,$query);
+    		/*$query="insert into syllabus(";
+    		$query .="Broad_topic,Question_name,Question_type,Option_no,Question_description,Topic_Id";
+    		$query .=") values(?,?,?,?,?,?)";*/
+            //$query="call addquestion(?,?,?,?,?,?)"
+            $stmt = $connection->prepare("call addquestion(?,?,?,?,?,?)");
+            $stmt->bind_param('sssisi', $input_topic, $question_name, $questiont_type, $number_ofoption, $question_desc, $temp);
+            $result = $stmt->execute();
     		if($result)
     		{
         		echo "Success";
@@ -28,7 +31,7 @@
     		}else
     		{
 	        	die("Database connection fail".mysqli_error($connection)." ".$temp);
-    		}	
+    		}
     	}
 	}
 ?>
