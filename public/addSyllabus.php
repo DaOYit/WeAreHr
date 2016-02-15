@@ -4,33 +4,32 @@
 	if(isset($_POST['submit']))
 	{
     	$domain_id = $_POST['topicId'];
-    	$input_topic = $_POST['broadTopic'];
     	$question_name=$_POST['questionName'];
         $questiont_type = $_POST['questionType'];
-    	$number_ofoption = $_POST['numberOfOption'];
     	$question_desc = $_POST['questionDesc'];
+        $question_ans = $_POST['questionAns'];
     	$domainID= select_Domain_id($domain_id);
-
+        $answeroption="";
+        foreach ($_POST['option'] as $key => $value) {
+            $answeroption .=$value .",";
+        }
+        $answeroption=substr($answeroption,0,-2);
     	if(isset($domainID))
     	{
     		 while($row =$domainID->fetch_assoc())
 			{
 				$temp=$row["Topic_id"];
 			}
-    		/*$query="insert into syllabus(";
-    		$query .="Broad_topic,Question_name,Question_type,Option_no,Question_description,Topic_Id";
-    		$query .=") values(?,?,?,?,?,?)";*/
-            //$query="call addquestion(?,?,?,?,?,?)"
-            $stmt = $connection->prepare("call addquestion(?,?,?,?,?,?)");
-            $stmt->bind_param('sssisi', $input_topic, $question_name, $questiont_type, $number_ofoption, $question_desc, $temp);
+            $stmt = $connection->prepare("call addQuestion(?,?,?,?,?,?,?)");
+            $stmt->bind_param('sssssis', $question_name, $questiont_type, $answeroption, $question_ans, $question_desc, $temp, $domain_id);
             $result = $stmt->execute();
     		if($result)
     		{
         		echo "Success";
-        		redirect_to("addChallenge.php");
+        		redirect_to("addProblem.php");
     		}else
     		{
-	        	die("Database connection fail".mysqli_error($connection)." ".$temp);
+	        	die("Database connection fail".$connection->connect_errno." ".$temp);
     		}
     	}
 	}

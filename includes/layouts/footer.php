@@ -1,5 +1,7 @@
      
-                
+         </div>
+    </div>
+</div>       
      <!-- footer content -->
                 <footer>
                     <div class="">
@@ -22,8 +24,9 @@
         <div class="clearfix"></div>
         <div id="notif-group" class="tabbed_notifications"></div>
     </div>
-
+ 
     <script src="js/bootstrap.min.js"></script>
+   
 
     <!-- chart js -->
     <script src="js/chartjs/chart.min.js"></script>
@@ -31,11 +34,34 @@
     <script src="js/progressbar/bootstrap-progressbar.min.js"></script>
     <script src="js/nicescroll/jquery.nicescroll.min.js"></script>
     <!-- icheck -->
-    <script src="js/icheck/icheck.min.js"></script>
 
-    <script src="js/custom.js"></script>
+    <script src="js/icheck/icheck.min.js"></script>
     <!-- form validation -->
     <script src="js/validator/validator.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/custom/formValidation.min.js"></script>
+    <script src="js/custom/bootstrap.min.js"></script>
+     <script type="text/javascript" src="js/custom/jquery.validate.min.js"></script>
+      <!-- Datatables -->
+     <script src="js/datatables/js/jquery.dataTables.js"></script>
+     <script src="js/datatables/tools/js/dataTables.tableTools.js"></script>
+    <script src="js/custom/table.js"></script>
+
+    <!-- daterangepicker -->
+    <script type="text/javascript" src="js/moment.min2.js"></script>
+    <script type="text/javascript" src="js/datepicker/daterangepicker.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#Edate').daterangepicker({
+                singleDatePicker: true,
+                calender_style: "picker_1"
+            }, function (start, end, label) {
+                console.log(start.toISOString(), end.toISOString(), label);
+            });
+            
+        });
+    </script>
+    
     <script>
         // initialize the validator function
         validator.message['date'] = 'not a real date';
@@ -78,27 +104,33 @@
                 $('form .alert').remove();
         }).prop('checked', false);
     </script>
-    <!-- daterangepicker -->
-    <script type="text/javascript" src="js/moment.min2.js"></script>
-    <script type="text/javascript" src="js/datepicker/daterangepicker.js"></script>
+    <script src="js/custom/adddeltexbox.js"></script> 
+ <!--clock-->
+    <script type="text/javascript" src="css/dist/bootstrap-clockpicker.min.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
-            $('#single_cal1').daterangepicker({
-                singleDatePicker: true,
-                calender_style: "picker_1"
-            }, function (start, end, label) {
-                console.log(start.toISOString(), end.toISOString(), label);
-            });
-            $('#single_cal2').daterangepicker({
-                singleDatePicker: true,
-                calender_style: "picker_1"
-            }, function (start, end, label) {
-                console.log(start.toISOString(), end.toISOString(), label);
-            });
-            
-        });
+    $('.clockpicker').clockpicker()
+    .find('input').change(function(){
+        console.log(this.value);
+    });
+    var input = $('#Stime').clockpicker({
+    placement: 'bottom',
+    align: 'left',
+    autoclose: true,
+    'default': 'now'
+    });
+    var input = $('#Etime').clockpicker({
+    placement: 'bottom',
+    align: 'left',
+    autoclose: true,
+    'default': 'now'
+    });
     </script>
-
+    <script type="text/javascript" src="js/custom/highlight.min.js"></script>
+    
+    <script type="text/javascript">
+    hljs.configure({tabReplace: '    '});
+    hljs.initHighlightingOnLoad();
+    </script>
 </body>
 
 </html>

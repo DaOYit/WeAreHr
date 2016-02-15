@@ -16,13 +16,15 @@
 
     <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/animate.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="css/dist/bootstrap-clockpicker.min.css">
+    <link rel="stylesheet" type="text/css" href="css/github.min.css">
     <!-- Custom styling plus plugins -->
     <link href="css/custom.css" rel="stylesheet">
     <link href="css/icheck/flat/green.css" rel="stylesheet">
-
-
+     <link href="css/datatables/tools/css/dataTables.tableTools.css" rel="stylesheet">
+     <link href="css/custom/formValidation.min.css" rel="stylesheet">
     <script src="js/jquery.min.js"></script>
+   
 
     <!--[if lt IE 9]>
         <script src="../assets/js/ie8-responsive-file-warning.js"></script>
@@ -85,9 +87,9 @@
                                     <ul class="nav child_menu" style="display: none">
                                         <li><a href="addChallenge.php">Adding challenges</a>
                                         </li>
-                                        <li><a href="#">Advanced Components</a>
+                                        <li><a href="addProblem.php">Add Problem</a>
                                         </li>
-                                        <li><a href="#">Form Validation</a>
+                                        <li><a href="setQuestion.php">Question</a>
                                         </li>
                                         <li><a href="#">Form Wizard</a>
                                         </li>
@@ -331,6 +333,31 @@
                             </div>
                         </div>
                     </div>
+                    <div class="clearfix"></div>
+    <div class="">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2><i class="fa fa-bars"></i> Tabs <small>Float left</small></h2>
+                        <ul class="nav navbar-right panel_toolbox">
+                            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                             </li>
+                             <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                 <ul class="dropdown-menu" role="menu">
+                                 <li><a href="#">Settings 1</a>
+                                 </li>
+                                 <li><a href="#">Settings 2</a>
+                                 </li>
+                                </ul>
+                                 </li>
+                                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                                </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                                </div>
+                                <div class="x_content">
+                                    <div class="x_content">
                     
 
                                 
