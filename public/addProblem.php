@@ -50,29 +50,33 @@
                                 <select id="questionType" name="questionType" class="form-control" required>
                                     <option>Single Choice</option>
                                     <option>Multiple Choice</option>
-                                    <option>Description</option>
                                 </select>
                             </div>
                             </div>
                             <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="numberOfOption">Option<span class="required">*</span>
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="numberOfOption">Add Answer Option<span class="required">*</span>
                             </label>
-                            <div class="col-xs-5">
-                                <input type="text" class="form-control" name="option[]" id="option"/>
-                            </div>
                             <div class="col-xs-4">
-                                 <button type="button" class="btn btn-primary addButton"><i class="fa fa-plus"></i></button>
-                                   
+                                 <button type="button" class="btn btn-primary addButton"><i class="fa fa-plus"></i></button>   
                             </div>
                             </div>
-                            <div class="form-group hide" id="optionTemplate">
-                            
+                            <div class="form-group">
                                 <div class="col-xs-offset-3 col-xs-5">
-                                    <input class="form-control" type="text" name="option[]" />
+                                    <input class="form-control" type="text" name="option[]" placeholder="Option 1"/>
+                                </div>
+                                <div class="col-xs-4">
+                                    <button type="button" class="btn btn-primary removeButton" disabled><i class="fa fa-minus"></i></button>
+                                    <label><input type="checkbox" class="js-switch"/> Correct Ans</label>
+                                </div>
+
+                        </div>
+                            <div class="form-group hide" id="optionTemplate">
+                                <div class="col-xs-offset-3 col-xs-5">
+                                    <input class="form-control" type="text" name="option[]" placeholder="Option 2" />
                                 </div>
                                 <div class="col-xs-4">
                                     <button type="button" class="btn btn-primary removeButton"><i class="fa fa-minus"></i></button>
-                                    <label><input type="checkbox" class="js-switch"/> Check me If Ans</label>
+                                    <label><input type="checkbox" class="js-switch"/> Correct Ans</label>
                                 </div>
 
                         </div>
