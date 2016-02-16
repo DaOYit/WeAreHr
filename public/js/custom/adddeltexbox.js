@@ -1,83 +1,148 @@
 
 $(document).ready(function() {
     // The maximum number of options
-    var MAX_OPTIONS = 5;
+    var maxField = 6; //Input fields increment limitation
+    var addButton = $('.add_button'); //Add button selector
+    var wrapper = $('.wrapper'); //Input field wrapper
+    var x = 2;
     
     $('#surveyForm')
-        .formValidation({
-            framework: 'bootstrap',
-            icon: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-            fields: {
-                question: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The question required and cannot be empty'
-                        }
-                    }
-                },
-                'option[]': {
-                    validators: {
-                        notEmpty: {
-                            message: 'The option required and cannot be empty'
-                        },
-                        stringLength: {
-                            max: 100,
-                            message: 'The option must be less than 100 characters long'
-                        }
-                    }
+        .on('click','#submit',function(e){
+            var isValid=true;
+            $('#option1,#option2,#option3,#option4,#option5').each(function(){
+                if($.trim($(this).val())==''){
+                    isValid=false;
+                    $(this).css({
+                        "border":"1px solid red",
+                        "background":"#FFCECE"
+                    });
+                }else
+                {
+                   $(this).css({
+                        "border":"",
+                        "background":""
+                    }); 
                 }
+            });
+            if($('.checkbo:checkbox:checked').length==0)
+            {
+                isValid=false;
+                $('.checkbo').css('outline-color','red');
+                $('.checkbo').css('outline-style','solid');
+                $('.checkbo').css('outline-width','thin');
             }
+            if(isValid==false)
+            {
+                e.preventDefault();
+            }
+
         })
         // Add button click handler
         .on('click', '.addButton', function() {
-            var $template = $('#optionTemplate'),
-                $clone    = $template
-                                .clone()
-                                .removeClass('hide')
-                                .removeAttr('id')
-                                .insertBefore($template),
-                $option   = $clone.find('[name="option[]"]');
+            if(x < maxField){ //Check maximum number of input fields
+            $(wrapper).append('<div class="item form-group"><div class="col-xs-offset-3 col-xs-5"><input class="form-control" type="text" id="option'+x+'" name="option[]" placeholder="Option '+x+'"/></div><button type="button" class="btn btn-primary removeButton"><i class="fa fa-minus"></i></button><label><input type="checkbox" id="ans'+x+'" class="checkbo"/></label></div>'); // Add field html
+            x++; //Increment field counter
+        } 
 
             // Add new field
            
         })
 
         // Remove button click handler
-        .on('click', '.removeButton', function() {
-            var $row    = $(this).parents('.form-group'),
-                $option = $row.find('[name="option[]"]');
-
-            // Remove element containing the option
-            $row.remove();
-
-            // Remove field
+        .on('click', '.removeButton', function(e) {
+            e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--;
             
         })
 
-        // Called after adding new field
-        .on('added.field.fv', function(e, data) {
-            // data.field   --> The field name
-            // data.element --> The new field element
-            // data.options --> The new field options
+        .on('change','#ans',function(){
+           var anss = $('#questionAns').val();
+           var bla = $('#option1').val();
+           if(bla!="")
+           {
+            if(this.checked)
+           {
+                anss =anss+","+bla;
+           }else
+           {
+                bla=","+bla;
+                anss=anss.replace(bla,'');
+                //alert("hh");
+           }
+            $('#questionAns').val(anss);
+        }
 
-            if (data.field === 'option[]') {
-                if ($('#surveyForm').find(':visible[name="option[]"]').length >= MAX_OPTIONS) {
-                    $('#surveyForm').find('.addButton').attr('disabled', 'disabled');
-                }
-            }
         })
-
-        // Called after removing the field
-        .on('removed.field.fv', function(e, data) {
-           if (data.field === 'option[]') {
-                if ($('#surveyForm').find(':visible[name="option[]"]').length < MAX_OPTIONS) {
-                    $('#surveyForm').find('.addButton').removeAttr('disabled');
-                }
-            }
+        .on('change','#ans2',function(){
+           var anss = $('#questionAns').val();
+           var bla = $('#option2').val();
+           if(bla!="")
+           {
+            if(this.checked)
+           {
+                anss =anss+","+bla;
+           }else
+           {
+                bla=","+bla;
+                anss=anss.replace(bla,'');
+                //alert("hh");
+           }
+            $('#questionAns').val(anss);
+        }
+        })
+        .on('change','#ans3',function(){
+           var anss = $('#questionAns').val();
+           var bla = $('#option3').val();
+           if(bla!="")
+           {
+            if(this.checked)
+           {
+                anss =anss+","+bla;
+           }else
+           {
+                bla=","+bla;
+                anss=anss.replace(bla,'');
+                //alert("hh");
+           }
+            $('#questionAns').val(anss);
+        }
+        })
+        .on('change','#ans4',function(){
+           var anss = $('#questionAns').val();
+           var bla = $('#option4').val();
+           if(bla!="")
+           {
+            if(this.checked)
+           {
+                anss =anss+","+bla;
+           }else
+           {
+                bla=","+bla;
+                anss=anss.replace(bla,'');
+                //alert("hh");
+           }
+            $('#questionAns').val(anss);
+        }
+        })
+        .on('change','#ans5',function(){
+           var anss = $('#questionAns').val();
+           var bla = $('#option5').val();
+           if(bla!="")
+           {
+            if(this.checked)
+           {
+                anss =anss+","+bla;
+           }else
+           {
+                bla=","+bla;
+                anss=anss.replace(bla,'');
+                //alert("hh");
+           }
+            $('#questionAns').val(anss);
+        }
         });
+
         
 });
+

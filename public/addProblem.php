@@ -54,23 +54,21 @@
                             </div>
                             </div>
                             <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="numberOfOption">Add Answer Option<span class="required">*</span>
-                            </label>
-                            <div class="col-xs-4">
-                                 <button type="button" class="btn btn-primary addButton"><i class="fa fa-plus"></i></button>   
+                                <div class="item form-group">
+                                    <div class="col-xs-offset-3 col-xs-5">
+                                        <label><i><b>Hint: </b>Tick the checkbox for the correct option</i></label>
+                                    </div>
+                                 </div>   
                             </div>
+                            <div class="item form-group wrapper">
+                                <div class="item form-group">
+                                    <div class="col-xs-offset-3 col-xs-5">
+                                        <input class="form-control" type="text" id="option1" name="option[]" placeholder="Option 1" />
+                                    </div>
+                                    <button type="button" class="btn btn-primary addButton"><i class="fa fa-plus"></i></button><label><input type="checkbox" id="ans" class="checkbo"/></label>   
+                                 </div>   
                             </div>
-                            <div class="form-group">
-                                <div class="col-xs-offset-3 col-xs-5">
-                                    <input class="form-control" type="text" name="option[]" placeholder="Option 1"/>
-                                </div>
-                                <div class="col-xs-4">
-                                    <button type="button" class="btn btn-primary removeButton" disabled><i class="fa fa-minus"></i></button>
-                                    <label><input type="checkbox" class="js-switch"/> Correct Ans</label>
-                                </div>
-
-                        </div>
-                            <div class="form-group hide" id="optionTemplate">
+                            <!--div class="form-group hide" id="optionTemplate">
                                 <div class="col-xs-offset-3 col-xs-5">
                                     <input class="form-control" type="text" name="option[]" placeholder="Option 2" />
                                 </div>
@@ -79,18 +77,12 @@
                                     <label><input type="checkbox" class="js-switch"/> Correct Ans</label>
                                 </div>
 
-                        </div>
-                        <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="questionAns">Answer of the Question<span class="required">*</span>
-                            </label>
-                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                <input id="questionAns" class="form-control col-md-7 col-xs-12"  name="questionAns" placeholder="e.g PHP,JAVA, etc" required="required" type="text">
-                            </div>
-                        </div>
+                        </div-->
                         <div class="item form-group">
                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="questionDesc">Question Description<span class="required">*</span>
                             </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
+                             <input id="questionAns" class="form-control col-md-7 col-xs-12"  name="questionAns" type="hidden">
                                 <textarea id="questionDesc" name="questionDesc" class="form-control col-md-7 col-xs-12" placeholder="e.g www.w3school.com"></textarea>
                             </div>
                         </div>
