@@ -7,6 +7,8 @@
         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
             <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Add Topic</a>
             </li>
+            <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Edit Topic</a>
+            </li>
             <li role="presentation" class=""><a href="#tab_content4" role="tab" id="profile-tab3" data-toggle="tab" aria-expanded="false">Exam Details</a>
             </li>
         </ul>
@@ -30,6 +32,30 @@
                         <div class="col-md-6 col-md-offset-3">
 
                             <button id="submit" name="submit" type="submit" class="btn btn-success">ADD</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+        </div>
+        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab2">
+        <div class="x_content">
+            <form class="form-horizontal form-label-left" action="updateTopic.php" method="post" novalidate>
+
+                <span class="section">Update Topic</span>
+
+                    <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="topicName">Enter Topic name <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input id="topicName" class="form-control col-md-7 col-xs-12"  name="topicName" placeholder="e.g PHP,JAVA, etc" required="required" type="text">
+                        </div>
+                    </div>
+
+                    <div class="ln_solid"></div>
+                    <div class="form-group">
+                        <div class="col-md-6 col-md-offset-3">
+
+                            <button id="submit" name="submit" type="submit" class="btn btn-success">Update</button>
                         </div>
                     </div>
             </form>
